@@ -194,6 +194,7 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             assert (mTextures.size() > 0);
 
             int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,3,4,5,6};
+            float[] scaleDB = new float[]{0.8f,0.7f,1.0f,0.5f,0.9f,0.2f,0.8f,0.1f,0.2f,1.0f,3.0f,4.0f,5.0f,6.0f};
 
             Texture thisTexture = mTextures.get(texturesDB[markerId]);
             
@@ -257,10 +258,8 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
                         kLetterScale);
             } else {
                 // Barras de progresso!
-                Matrix.translateM(modelViewMatrix, 0, 0,
-                    -kBarTranslate, 0.f);
-                Matrix.scaleM(modelViewMatrix, 0, kBarScale, kBarScale,
-                        kBarScale);
+                Matrix.translateM(modelViewMatrix, 0, 0, -kBarTranslate, 0.f);
+                Matrix.scaleM(modelViewMatrix, 0, scaleDB[markerId]*kBarScale, kBarScale, kBarScale);
             }
             Matrix.multiplyMM(modelViewProjection, 0, vuforiaAppSession
                 .getProjectionMatrix().getData(), 0, modelViewMatrix, 0);
