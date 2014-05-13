@@ -184,18 +184,18 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             float[] modelViewMatrix = Tool.convertPose2GLMatrix(
                 trackableResult.getPose()).getData();
             
-            // Choose the texture based on the target name:
-            int textureIndex = 0;
-            
             // Check the type of the trackable:
             assert (trackableResult.getType() == MarkerTracker.getClassType());
             MarkerResult markerResult = (MarkerResult) (trackableResult);
             Marker marker = (Marker) markerResult.getTrackable();
             
-            textureIndex = marker.getMarkerId();
+            int markerId = marker.getMarkerId();
             
-            assert (textureIndex < mTextures.size());
-            Texture thisTexture = mTextures.get(textureIndex);
+            assert (mTextures.size() > 0);
+
+            int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,3,4,5,6};
+
+            Texture thisTexture = mTextures.get(texturesDB[markerId]);
             
             // Select which model to draw:
             Buffer vertices = null;
@@ -205,7 +205,7 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             int numIndices = 0;
             int numVerts = 0;
             
-            switch (marker.getMarkerId())
+            switch (markerId)
             {
                 case 10:
                     vertices = qObject.getVertices();
