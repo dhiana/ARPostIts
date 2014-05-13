@@ -150,6 +150,26 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
     // for rendering.
     private void loadTextures()
     {
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/green.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/yellow.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/red.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/yellow.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/green.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/red.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/red.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/yellow.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/green.png",
+                getAssets()));
+        mTextures.add(Texture.loadTextureFromApk("FrameMarkers/red.png",
+                getAssets()));
         mTextures.add(Texture.loadTextureFromApk("FrameMarkers/letter_Q.png",
             getAssets()));
         mTextures.add(Texture.loadTextureFromApk("FrameMarkers/letter_C.png",
@@ -351,40 +371,16 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         if (markerTracker == null)
             return false;
         
-        dataSet = new Marker[4];
+        dataSet = new Marker[14];
         
-        dataSet[0] = markerTracker.createFrameMarker(0, "MarkerQ", new Vec2F(
-            50, 50));
-        if (dataSet[0] == null)
-        {
-            Log.e(LOGTAG, "Failed to create frame marker Q.");
-            return false;
+        for(int i=0; i<14; i++){
+            dataSet[i] = markerTracker.createFrameMarker(i, "Marker"+i, new Vec2F(50, 50));
+            if (dataSet[i] == null){
+                Log.e(LOGTAG, "Failed to create frame marker"+i+".");
+                return false;
+            }
         }
-        
-        dataSet[1] = markerTracker.createFrameMarker(1, "MarkerC", new Vec2F(
-            50, 50));
-        if (dataSet[1] == null)
-        {
-            Log.e(LOGTAG, "Failed to create frame marker C.");
-            return false;
-        }
-        
-        dataSet[2] = markerTracker.createFrameMarker(2, "MarkerA", new Vec2F(
-            50, 50));
-        if (dataSet[2] == null)
-        {
-            Log.e(LOGTAG, "Failed to create frame marker A.");
-            return false;
-        }
-        
-        dataSet[3] = markerTracker.createFrameMarker(3, "MarkerR", new Vec2F(
-            50, 50));
-        if (dataSet[3] == null)
-        {
-            Log.e(LOGTAG, "Failed to create frame marker R.");
-            return false;
-        }
-        
+
         Log.i(LOGTAG, "Successfully initialized MarkerTracker.");
         
         return true;
