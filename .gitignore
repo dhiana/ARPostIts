@@ -25,3 +25,6 @@ proguard/
 # Libs
 libs/
 media/
+
+# Unix
+*.swp
