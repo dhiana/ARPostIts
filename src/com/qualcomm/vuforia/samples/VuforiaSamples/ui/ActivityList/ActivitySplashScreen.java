@@ -23,6 +23,9 @@ public class ActivitySplashScreen extends Activity
     
     private static long SPLASH_MILLIS = 450;
     
+    private String mClassToLaunch;
+    private String mClassToLaunchPackage;
+    private String mActivityToLaunch;
     
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -47,11 +50,12 @@ public class ActivitySplashScreen extends Activity
             @Override
             public void run()
             {
-                
-                Intent intent = new Intent(ActivitySplashScreen.this,
-                    ActivityLauncher.class);
+                Intent intent = new Intent();
+                mClassToLaunchPackage = getPackageName();
+                mActivityToLaunch = "app.FrameMarkers.FrameMarkers";
+                mClassToLaunch = mClassToLaunchPackage + "." + mActivityToLaunch;
+                intent.setClassName(mClassToLaunchPackage, mClassToLaunch);
                 startActivity(intent);
-                
             }
             
         }, SPLASH_MILLIS);
