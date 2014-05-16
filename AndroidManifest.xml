@@ -97,45 +97,6 @@
          </activity>
         
         <activity
-            android:name=".ui.ActivityList.ActivityLauncher"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-            android:screenOrientation="portrait"
-            >
-        </activity>
-        
-         <activity
-            android:name=".ui.ActivityList.AboutScreen"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-            android:screenOrientation="portrait"
-            android:noHistory="true"
-            >
-        </activity>
-         
-        <activity
-            android:name=".app.ImageTargets.ImageTargets"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-        
-        <activity
-            android:name=".app.TextRecognition.TextReco"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
-  	        android:launchMode="singleTask"
-            >
-        </activity>
-
-        <activity
-            android:name=".app.CylinderTargets.CylinderTargets"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-        
-        <activity
             android:name=".app.FrameMarkers.FrameMarkers"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
         	android:theme="@style/SampleAppsTheme"
@@ -143,38 +104,6 @@
             >
         </activity>
         
-        <activity
-            android:name=".app.VirtualButtons.VirtualButtons"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-        
-        <activity
-            android:name=".app.UserDefinedTargets.UserDefinedTargets"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-                
-        <activity
-            android:name=".app.MultiTargets.MultiTargets"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-        
-        <activity
-            android:name=".app.CloudRecognition.CloudReco"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-        	android:theme="@style/SampleAppsTheme"
- 	        android:launchMode="singleTask"
-            >
-        </activity>
-         
     </application>
 
 </manifest>
