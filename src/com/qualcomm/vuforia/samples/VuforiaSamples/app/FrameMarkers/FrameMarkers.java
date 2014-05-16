@@ -156,14 +156,6 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         mTextures.add(yellowTexture);
         Texture redTexture = Texture.loadTextureFromApk("FrameMarkers/red.png", getAssets());
         mTextures.add(redTexture);
-        Texture qTexture = Texture.loadTextureFromApk("FrameMarkers/letter_Q.png", getAssets());
-        mTextures.add(qTexture);
-        Texture cTexture = Texture.loadTextureFromApk("FrameMarkers/letter_C.png", getAssets());
-        mTextures.add(cTexture);
-        Texture aTexture = Texture.loadTextureFromApk("FrameMarkers/letter_A.png", getAssets());
-        mTextures.add(aTexture);
-        Texture rTexture = Texture.loadTextureFromApk("FrameMarkers/letter_R.png", getAssets());
-        mTextures.add(rTexture);
     }
     
     

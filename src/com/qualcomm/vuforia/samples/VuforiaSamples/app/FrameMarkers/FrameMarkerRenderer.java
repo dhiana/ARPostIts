@@ -57,10 +57,6 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     static private float kBarScale = 50.0f;
     static private float kBarTranslate = 30.0f;
     
-    private QObject qObject = new QObject();
-    private CObject cObject = new CObject();
-    private AObject aObject = new AObject();
-    private RObject rObject = new RObject();
     private BarObject barObject = new BarObject();
     
     
@@ -193,85 +189,45 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             
             assert (mTextures.size() > 0);
 
-            int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,3,4,5,6};
-            float[] scaleDB = new float[]{0.8f,0.7f,1.0f,0.5f,0.9f,0.2f,0.8f,0.1f,0.2f,1.0f,3.0f,4.0f,5.0f,6.0f};
+            int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,1,0,1,2};
+            float[] scaleDB = new float[]{0.8f,0.7f,1.0f,0.5f,0.9f,0.2f,0.8f,0.1f,0.2f,1.0f,1.0f,0.4f,0.9f,0.2f};
 
             Texture thisTexture = mTextures.get(texturesDB[markerId]);
             
-            // Select which model to draw:
             Buffer vertices = null;
             Buffer normals = null;
             Buffer indices = null;
             Buffer texCoords = null;
-            int numIndices = 0;
             int numVerts = 0;
-            
-            switch (markerId)
-            {
-                case 10:
-                    vertices = qObject.getVertices();
-                    normals = qObject.getNormals();
-                    indices = qObject.getIndices();
-                    texCoords = qObject.getTexCoords();
-                    numIndices = qObject.getNumObjectIndex();
-                    break;
-                case 11:
-                    vertices = cObject.getVertices();
-                    normals = cObject.getNormals();
-                    indices = cObject.getIndices();
-                    texCoords = cObject.getTexCoords();
-                    numIndices = cObject.getNumObjectIndex();
-                    break;
-                case 12:
-                    vertices = aObject.getVertices();
-                    normals = aObject.getNormals();
-                    indices = aObject.getIndices();
-                    texCoords = aObject.getTexCoords();
-                    numIndices = aObject.getNumObjectIndex();
-                    break;
-                case 13:
-                    vertices = rObject.getVertices();
-                    normals = rObject.getNormals();
-                    indices = rObject.getIndices();
-                    texCoords = rObject.getTexCoords();
-                    numIndices = rObject.getNumObjectIndex();
-                    break;
-                default:
-                    vertices = barObject.getVertices();
-                    normals = barObject.getNormals();
-                    indices = barObject.getIndices();
-                    texCoords = barObject.getTexCoords();
-                    numIndices = barObject.getNumObjectIndex();
-                    // Sem indices (blender + obj2opengl)
-                    numVerts = barObject.getNumObjectVertex();
-                    break;
-            }
+           
+            // Progress Bar 3D Model
+            vertices = barObject.getVertices();
+            normals = barObject.getNormals();
+            indices = barObject.getIndices();
+            texCoords = barObject.getTexCoords();
+            // Sem indices (blender + obj2opengl)
+            numVerts = barObject.getNumObjectVertex();
             
             float[] modelViewProjection = new float[16];
             
             if (mActivity.isFrontCameraActive())
                 Matrix.rotateM(modelViewMatrix, 0, 180, 0.f, 1.0f, 0.f);
-            if(numVerts == 0){
-                Matrix.translateM(modelViewMatrix, 0, -kLetterTranslate,
-                    -kLetterTranslate, 0.f);
-                Matrix.scaleM(modelViewMatrix, 0, kLetterScale, kLetterScale,
-                        kLetterScale);
-            } else {
-                // Barras de progresso!
-                float xBarTranslate = 0.f;
-                if(scaleDB[markerId]!= 1.0f){
-                    // Scaling keeps centering!
-                    // We're subtracting the remaining space and dividing by two
-                    // The we translate to the left (negative)
-                    // Resulting formula bellow!
-                    xBarTranslate = -(1-scaleDB[markerId])*kBarScale/2;
-                    if (mActivity.isFrontCameraActive())
-                        // Front camara goes to the right!
-                        xBarTranslate = -xBarTranslate;
-                }
-                Matrix.translateM(modelViewMatrix, 0, xBarTranslate, -kBarTranslate, 0.f);
-                Matrix.scaleM(modelViewMatrix, 0, scaleDB[markerId]*kBarScale, kBarScale, kBarScale);
+
+            // Barras de progresso!
+            float xBarTranslate = 0.f;
+            if(scaleDB[markerId]!= 1.0f){
+                // Scaling keeps centering!
+                // We're subtracting the remaining space and dividing by two
+                // The we translate to the left (negative)
+                // Resulting formula bellow!
+                xBarTranslate = -(1-scaleDB[markerId])*kBarScale/2;
+                if (mActivity.isFrontCameraActive())
+                    // Front camara goes to the right!
+                    xBarTranslate = -xBarTranslate;
             }
+            Matrix.translateM(modelViewMatrix, 0, xBarTranslate, -kBarTranslate, 0.f);
+            Matrix.scaleM(modelViewMatrix, 0, scaleDB[markerId]*kBarScale, kBarScale, kBarScale);
+            
             Matrix.multiplyMM(modelViewProjection, 0, vuforiaAppSession
                 .getProjectionMatrix().getData(), 0, modelViewMatrix, 0);
             
@@ -294,13 +250,9 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false,
                 modelViewProjection, 0);
             GLES20.glUniform1i(texSampler2DHandle, 0);
-            if(numVerts == 0){
-                GLES20.glDrawElements(GLES20.GL_TRIANGLES, numIndices,
-                        GLES20.GL_UNSIGNED_SHORT, indices);
-            } else {
-                // Nova maneira:
-                GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, numVerts);
-            }
+
+            // Nova maneira (sem indices)
+            GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, numVerts);
 
             GLES20.glDisableVertexAttribArray(vertexHandle);
             GLES20.glDisableVertexAttribArray(normalHandle);
