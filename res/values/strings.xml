@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Vuforia</string>
-    <string name="app_description">Vuforia Sample Applications</string>
+    <string name="app_name">AR Post-its</string>
+    <string name="app_description">Augmented Reality Gone Post-its!</string>
     
     <string name="button_start">Start</string>
     <string name="activities_list_title_string">Vuforia Samples</string>
