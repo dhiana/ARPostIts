@@ -6,6 +6,7 @@
 package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.util.Vector;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
@@ -27,6 +28,10 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 import com.qualcomm.vuforia.CameraDevice;
 import com.qualcomm.vuforia.Marker;
 import com.qualcomm.vuforia.MarkerTracker;
@@ -45,6 +50,10 @@ import com.qualcomm.vuforia.samples.VuforiaSamples.R;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+
+import com.dhiana.arpostits.model.Item;
+import com.dhiana.arpostits.model.Project;
+import com.dhiana.arpostits.api.ApiClient;
 
 
 // The main activity for the FrameMarkers sample. 
@@ -82,7 +91,9 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         this);
     
     boolean mIsDroidDevice = false;
-    
+
+    private List<Item> mItems;
+    private Project mProject;
     
     // Called when the activity first starts or the user navigates back to an
     // activity.
@@ -101,6 +112,31 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         
         mGestureDetector = new GestureDetector(this, new GestureListener());
         
+        ApiClient.getARPostItsApiClient().getProject(1, new Callback<Project>() {
+            @Override
+            public void success(Project project, Response response) {
+                Log.d(LOGTAG, "Getting project");
+                Log.d(LOGTAG, Integer.toString(response.getStatus()));
+                Log.d(LOGTAG, Integer.toString(project.getId()));
+                Log.d(LOGTAG, project.getTitle());
+                mProject = project;
+                Log.d(LOGTAG, "Got it.");
+                mItems = mProject.getItems();
+                Log.d(LOGTAG, "Getting items");
+                for(int i=0;i<mItems.size();i++){
+                    Log.d(LOGTAG, mItems.get(i).getTitle());
+                    Log.d(LOGTAG, "Getting progress");
+                    Log.d(LOGTAG, Integer.toString(mItems.get(i).getProgress()));
+                }
+                Log.d(LOGTAG, "Got it.");
+            }
+
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                Log.d(LOGTAG, "No consumption.");
+            }
+        });
+
         // Load any sample specific textures:
         mTextures = new Vector<Texture>();
         loadTextures();
