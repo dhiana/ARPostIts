@@ -129,6 +129,7 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
                     Log.d(LOGTAG, Integer.toString(mItems.get(i).getProgress()));
                 }
                 Log.d(LOGTAG, "Got it.");
+                mRenderer.setItems(mItems);
             }
 
             @Override
@@ -343,7 +344,6 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
 
         mRenderer = new FrameMarkerRenderer(this, vuforiaAppSession);
         mRenderer.setTextures(mTextures);
-        mRenderer.setItems(mItems);
         mGlView.setRenderer(mRenderer);
 
     }
