@@ -6,6 +6,7 @@ import java.util.Map;
 public class Item {
 
     private Integer id;
+    private Integer marker;
     private Integer progress;
     private String title;
     private Boolean ready;
@@ -17,6 +18,14 @@ public class Item {
 
     public Integer getId() {
         return id;
+    }
+
+    public Integer getMarker() {
+        return marker;
+    }
+
+    public void setMarker(Integer marker) {
+        this.marker = marker;
     }
 
     public Integer getProgress() {
