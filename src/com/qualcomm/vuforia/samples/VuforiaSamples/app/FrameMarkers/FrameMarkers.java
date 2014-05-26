@@ -6,6 +6,7 @@
 package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.util.Vector;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -92,7 +93,7 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
     
     boolean mIsDroidDevice = false;
 
-    private List<Item> mItems;
+    private List<Item> mItems = new ArrayList<Item>();
     private Project mProject;
     
     // Called when the activity first starts or the user navigates back to an
