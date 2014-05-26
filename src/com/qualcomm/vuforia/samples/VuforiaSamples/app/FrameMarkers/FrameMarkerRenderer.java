@@ -31,18 +31,17 @@ import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
 
 
-// The renderer class for the FrameMarkers sample. 
+// The renderer class for the FrameMarkers sample.
 public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 {
     private static final String LOGTAG = "FrameMarkerRenderer";
-    
+
     SampleApplicationSession vuforiaAppSession;
     FrameMarkers mActivity;
-    
+
     public boolean mIsActive = false;
-    
+
     private Vector<Texture> mTextures;
-    
     // OpenGL ES 2.0 specific:
     private int shaderProgramID = 0;
     private int vertexHandle = 0;
@@ -50,16 +49,16 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     private int textureCoordHandle = 0;
     private int mvpMatrixHandle = 0;
     private int texSampler2DHandle = 0;
-    
+
     // Constants:
     static private float kLetterScale = 25.0f;
     static private float kLetterTranslate = 25.0f;
     static private float kBarScale = 50.0f;
     static private float kBarTranslate = 30.0f;
-    
+
     private BarObject barObject = new BarObject();
-    
-    
+
+
     public FrameMarkerRenderer(FrameMarkers activity,
         SampleApplicationSession session)
     {
@@ -149,16 +148,16 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     {
         // Clear color and depth buffer
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-        
+
         // Get the state from Vuforia and mark the beginning of a rendering
         // section
         State state = Renderer.getInstance().begin();
-        
+
         // Explicitly render the Video Background
         Renderer.getInstance().drawVideoBackground();
-        
+
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-        
+
         // We must detect if background reflection is active and adjust the
         // culling direction.
         // If the reflection is active, this means the post matrix has been
@@ -171,7 +170,7 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             GLES20.glFrontFace(GLES20.GL_CW);  // Front camera
         else
             GLES20.glFrontFace(GLES20.GL_CCW);   // Back camera
-            
+
         // Did we find any trackables this frame?
         for (int tIdx = 0; tIdx < state.getNumTrackableResults(); tIdx++)
         {
@@ -179,27 +178,27 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             TrackableResult trackableResult = state.getTrackableResult(tIdx);
             float[] modelViewMatrix = Tool.convertPose2GLMatrix(
                 trackableResult.getPose()).getData();
-            
+
             // Check the type of the trackable:
             assert (trackableResult.getType() == MarkerTracker.getClassType());
             MarkerResult markerResult = (MarkerResult) (trackableResult);
             Marker marker = (Marker) markerResult.getTrackable();
-            
+
             int markerId = marker.getMarkerId();
-            
+
             assert (mTextures.size() > 0);
 
             int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,1,0,1,2};
             float[] scaleDB = new float[]{0.8f,0.7f,1.0f,0.5f,0.9f,0.2f,0.8f,0.1f,0.2f,1.0f,1.0f,0.4f,0.9f,0.2f};
 
             Texture thisTexture = mTextures.get(texturesDB[markerId]);
-            
+
             Buffer vertices = null;
             Buffer normals = null;
             Buffer indices = null;
             Buffer texCoords = null;
             int numVerts = 0;
-           
+
             // Progress Bar 3D Model
             vertices = barObject.getVertices();
             normals = barObject.getNormals();
@@ -207,9 +206,9 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             texCoords = barObject.getTexCoords();
             // Sem indices (blender + obj2opengl)
             numVerts = barObject.getNumObjectVertex();
-            
+
             float[] modelViewProjection = new float[16];
-            
+
             if (mActivity.isFrontCameraActive())
                 Matrix.rotateM(modelViewMatrix, 0, 180, 0.f, 1.0f, 0.f);
 
@@ -227,23 +226,23 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             }
             Matrix.translateM(modelViewMatrix, 0, xBarTranslate, -kBarTranslate, 0.f);
             Matrix.scaleM(modelViewMatrix, 0, scaleDB[markerId]*kBarScale, kBarScale, kBarScale);
-            
+
             Matrix.multiplyMM(modelViewProjection, 0, vuforiaAppSession
                 .getProjectionMatrix().getData(), 0, modelViewMatrix, 0);
-            
+
             GLES20.glUseProgram(shaderProgramID);
-            
+
             GLES20.glVertexAttribPointer(vertexHandle, 3, GLES20.GL_FLOAT,
                 false, 0, vertices);
             GLES20.glVertexAttribPointer(normalHandle, 3, GLES20.GL_FLOAT,
                 false, 0, normals);
             GLES20.glVertexAttribPointer(textureCoordHandle, 2,
                 GLES20.GL_FLOAT, false, 0, texCoords);
-            
+
             GLES20.glEnableVertexAttribArray(vertexHandle);
             GLES20.glEnableVertexAttribArray(normalHandle);
             GLES20.glEnableVertexAttribArray(textureCoordHandle);
-            
+
             GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
             GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,
                 thisTexture.mTextureID[0]);
@@ -257,22 +256,21 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             GLES20.glDisableVertexAttribArray(vertexHandle);
             GLES20.glDisableVertexAttribArray(normalHandle);
             GLES20.glDisableVertexAttribArray(textureCoordHandle);
-            
+
             SampleUtils.checkGLError("FrameMarkers render frame");
-            
+
         }
-        
+
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
-        
+
         Renderer.getInstance().end();
-        
+
     }
-    
-    
+
+
     public void setTextures(Vector<Texture> textures)
     {
         mTextures = textures;
-        
     }
-    
+
 }
