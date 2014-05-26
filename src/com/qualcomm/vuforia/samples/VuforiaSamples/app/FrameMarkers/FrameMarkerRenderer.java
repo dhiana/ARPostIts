@@ -198,6 +198,14 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 
             Texture thisTexture = mTextures.get(texturesDB[markerId]);
 
+            float thisScale = 0.0f;
+            //thisScale = scaleDB[markerId];
+
+            if (markerId < mItems.size()) {
+                Item thisItem = mItems.get(markerId);
+                thisScale = thisItem.getProgress() / 100.0f;
+            }
+
             Buffer vertices = null;
             Buffer normals = null;
             Buffer indices = null;
@@ -219,18 +227,18 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 
             // Barras de progresso!
             float xBarTranslate = 0.f;
-            if(scaleDB[markerId]!= 1.0f){
+            if(thisScale!= 1.0f){
                 // Scaling keeps centering!
                 // We're subtracting the remaining space and dividing by two
                 // The we translate to the left (negative)
                 // Resulting formula bellow!
-                xBarTranslate = -(1-scaleDB[markerId])*kBarScale/2;
+                xBarTranslate = -(1-thisScale)*kBarScale/2;
                 if (mActivity.isFrontCameraActive())
                     // Front camara goes to the right!
                     xBarTranslate = -xBarTranslate;
             }
             Matrix.translateM(modelViewMatrix, 0, xBarTranslate, -kBarTranslate, 0.f);
-            Matrix.scaleM(modelViewMatrix, 0, scaleDB[markerId]*kBarScale, kBarScale, kBarScale);
+            Matrix.scaleM(modelViewMatrix, 0, thisScale*kBarScale, kBarScale, kBarScale);
 
             Matrix.multiplyMM(modelViewProjection, 0, vuforiaAppSession
                 .getProjectionMatrix().getData(), 0, modelViewMatrix, 0);
@@ -280,7 +288,10 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 
     public void setItems(List<Item> items)
     {
+        Log.d(LOGTAG, "Going to set items...");
         mItems = items;
+        Log.d(LOGTAG, "Items set");
+        Log.d(LOGTAG, Integer.toString(items.size()));
     }
 
 }
