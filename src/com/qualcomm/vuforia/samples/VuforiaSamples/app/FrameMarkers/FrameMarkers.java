@@ -52,7 +52,6 @@ import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMen
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
 
-import com.dhiana.arpostits.model.Item;
 import com.dhiana.arpostits.model.Project;
 import com.dhiana.arpostits.api.ApiClient;
 
@@ -93,9 +92,8 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
 
     boolean mIsDroidDevice = false;
 
-    private List<Item> mItems = new ArrayList<Item>();
-    private Project mProject;
-    
+    private Project mProject = new Project();
+
     // Called when the activity first starts or the user navigates back to an
     // activity.
     @Override
@@ -116,26 +114,8 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         ApiClient.getARPostItsApiClient().getProject(1, new Callback<Project>() {
             @Override
             public void success(Project project, Response response) {
-                Log.d(LOGTAG, "Getting project");
-                Log.d(LOGTAG, Integer.toString(response.getStatus()));
-                Log.d(LOGTAG, Integer.toString(project.getId()));
-                Log.d(LOGTAG, project.getTitle());
                 mProject = project;
-                Log.d(LOGTAG, "Got it.");
-                mItems = mProject.getItems();
-                Log.d(LOGTAG, "Getting items");
-                for(int i=0;i<mItems.size();i++){
-                    Log.d(LOGTAG, mItems.get(i).getTitle());
-                    Log.d(LOGTAG, "Getting progress");
-                    Log.d(LOGTAG, Integer.toString(mItems.get(i).getProgress()));
-                    if (mItems.get(i).getReady()) {
-                        Log.d(LOGTAG, "Ready!");
-                    } else {
-                        Log.d(LOGTAG, "Not ready");
-                    }
-                }
-                Log.d(LOGTAG, "Got it.");
-                mRenderer.setItems(mItems);
+                mRenderer.setProject(mProject);
             }
 
             @Override

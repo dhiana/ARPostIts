@@ -33,6 +33,7 @@ import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
 
 import com.dhiana.arpostits.model.Item;
+import com.dhiana.arpostits.model.Project;
 
 // The renderer class for the FrameMarkers sample.
 public class FrameMarkerRenderer implements GLSurfaceView.Renderer
@@ -45,7 +46,7 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     public boolean mIsActive = false;
 
     private Vector<Texture> mTextures;
-    private List<Item> mItems = new ArrayList<Item>();
+    private Project mProject = new Project();
 
     // OpenGL ES 2.0 specific:
     private int shaderProgramID = 0;
@@ -196,8 +197,9 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
             float thisScale = 0.0f;
             int thisColor = 1;
 
-            if (markerId < mItems.size()) {
-                Item thisItem = mItems.get(markerId);
+            Item thisItem = mProject.getItemByMarker(markerId);
+
+            if (thisItem != null) {
                 thisScale = thisItem.getProgress() / 100.0f;
                 thisColor = thisItem.getColor();
             }
@@ -284,12 +286,10 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
         mTextures = textures;
     }
 
-    public void setItems(List<Item> items)
+
+    public void setProject(Project project)
     {
-        Log.d(LOGTAG, "Going to set items...");
-        mItems = items;
-        Log.d(LOGTAG, "Items set");
-        Log.d(LOGTAG, Integer.toString(items.size()));
+        mProject = project;
     }
 
 }
