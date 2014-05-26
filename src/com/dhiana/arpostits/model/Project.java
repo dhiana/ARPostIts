@@ -31,4 +31,15 @@ public class Project {
         this.title = title;
     }
 
+    public Item getItemByMarker(int markerId) {
+        Item currentItem;
+        for(int i=0; i<items.size(); i++) {
+            currentItem = items.get(i);
+            if (currentItem.getMarker() == markerId){
+                return currentItem;
+            }
+        }
+        return null;
+    }
+
 }
