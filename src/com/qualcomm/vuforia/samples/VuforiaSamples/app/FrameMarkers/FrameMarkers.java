@@ -62,35 +62,35 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
     SampleAppMenuInterface
 {
     private static final String LOGTAG = "FrameMarkers";
-    
+
     SampleApplicationSession vuforiaAppSession;
-    
+
     // Our OpenGL view:
     private SampleApplicationGLView mGlView;
-    
+
     // Our renderer:
     private FrameMarkerRenderer mRenderer;
-    
+
     // The textures we will use for rendering:
     private Vector<Texture> mTextures;
-    
+
     private RelativeLayout mUILayout;
-    
+
     private Marker dataSet[];
-    
+
     private GestureDetector mGestureDetector;
-    
+
     private SampleAppMenu mSampleAppMenu;
-    
+
     private boolean mFlash = false;
     private boolean mContAutofocus = false;
     private boolean mIsFrontCameraActive = false;
-    
+
     private View mFlashOptionView;
-    
+
     private LoadingDialogHandler loadingDialogHandler = new LoadingDialogHandler(
         this);
-    
+
     boolean mIsDroidDevice = false;
 
     private List<Item> mItems = new ArrayList<Item>();
