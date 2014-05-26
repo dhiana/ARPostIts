@@ -337,17 +337,17 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         int depthSize = 16;
         int stencilSize = 0;
         boolean translucent = Vuforia.requiresAlpha();
-        
+
         mGlView = new SampleApplicationGLView(this);
         mGlView.init(translucent, depthSize, stencilSize);
-        
+
         mRenderer = new FrameMarkerRenderer(this, vuforiaAppSession);
         mRenderer.setTextures(mTextures);
         mGlView.setRenderer(mRenderer);
-        
+
     }
-    
-    
+
+
     @Override
     public boolean doInitTrackers()
     {
