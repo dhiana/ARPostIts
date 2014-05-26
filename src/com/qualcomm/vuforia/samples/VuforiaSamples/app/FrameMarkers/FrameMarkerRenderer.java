@@ -7,6 +7,7 @@ package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.nio.Buffer;
 import java.util.Vector;
+import java.util.List;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -30,6 +31,7 @@ import com.qualcomm.vuforia.samples.SampleApplication.utils.CubeShaders;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleUtils;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
 
+import com.dhiana.arpostits.model.Item;
 
 // The renderer class for the FrameMarkers sample.
 public class FrameMarkerRenderer implements GLSurfaceView.Renderer
@@ -42,6 +44,8 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     public boolean mIsActive = false;
 
     private Vector<Texture> mTextures;
+    private List<Item> mItems;
+
     // OpenGL ES 2.0 specific:
     private int shaderProgramID = 0;
     private int vertexHandle = 0;
@@ -271,6 +275,11 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     public void setTextures(Vector<Texture> textures)
     {
         mTextures = textures;
+    }
+
+    public void setItems(List<Item> items)
+    {
+        mItems = items;
     }
 
 }

@@ -343,6 +343,7 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
 
         mRenderer = new FrameMarkerRenderer(this, vuforiaAppSession);
         mRenderer.setTextures(mTextures);
+        mRenderer.setItems(mItems);
         mGlView.setRenderer(mRenderer);
 
     }
