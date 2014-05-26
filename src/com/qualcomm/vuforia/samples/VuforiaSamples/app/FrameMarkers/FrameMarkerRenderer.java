@@ -7,6 +7,7 @@ package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.nio.Buffer;
 import java.util.Vector;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -44,7 +45,7 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     public boolean mIsActive = false;
 
     private Vector<Texture> mTextures;
-    private List<Item> mItems;
+    private List<Item> mItems = new ArrayList<Item>();
 
     // OpenGL ES 2.0 specific:
     private int shaderProgramID = 0;
