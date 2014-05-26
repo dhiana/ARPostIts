@@ -193,16 +193,16 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 
             assert (mTextures.size() > 0);
 
-            int[] texturesDB = new int[]{0,2,1,0,1,2,2,0,2,1,1,0,1,2};
-
-            Texture thisTexture = mTextures.get(texturesDB[markerId]);
-
             float thisScale = 0.0f;
+            int thisColor = 1;
 
             if (markerId < mItems.size()) {
                 Item thisItem = mItems.get(markerId);
                 thisScale = thisItem.getProgress() / 100.0f;
+                thisColor = thisItem.getColor();
             }
+
+            Texture thisTexture = mTextures.get(thisColor);
 
             Buffer vertices = null;
             Buffer normals = null;

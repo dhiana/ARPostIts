@@ -128,6 +128,11 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
                     Log.d(LOGTAG, mItems.get(i).getTitle());
                     Log.d(LOGTAG, "Getting progress");
                     Log.d(LOGTAG, Integer.toString(mItems.get(i).getProgress()));
+                    if (mItems.get(i).getReady()) {
+                        Log.d(LOGTAG, "Ready!");
+                    } else {
+                        Log.d(LOGTAG, "Not ready");
+                    }
                 }
                 Log.d(LOGTAG, "Got it.");
                 mRenderer.setItems(mItems);
