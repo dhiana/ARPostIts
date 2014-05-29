@@ -1,7 +1,6 @@
 package com.dhiana.arpostits.api;
 
 import com.dhiana.arpostits.model.Project;
-import com.dhiana.arpostits.model.Item;
 
 import java.util.List;
 
@@ -9,7 +8,6 @@ import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.http.GET;
 import retrofit.http.Path;
-import retrofit.http.Query;
 
 public class ApiClient {
     private static ARPostItsApiInterface sARPostItsService;
