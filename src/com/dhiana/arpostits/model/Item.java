@@ -1,7 +1,5 @@
 package com.dhiana.arpostits.model;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Item {
 
