@@ -7,9 +7,6 @@ package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.nio.Buffer;
 import java.util.Vector;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -56,9 +53,6 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
     private int mvpMatrixHandle = 0;
     private int texSampler2DHandle = 0;
 
-    // Constants:
-    static private float kLetterScale = 25.0f;
-    static private float kLetterTranslate = 25.0f;
     static private float kBarScale = 50.0f;
     static private float kBarTranslate = 30.0f;
 
@@ -208,14 +202,12 @@ public class FrameMarkerRenderer implements GLSurfaceView.Renderer
 
             Buffer vertices = null;
             Buffer normals = null;
-            Buffer indices = null;
             Buffer texCoords = null;
             int numVerts = 0;
 
             // Progress Bar 3D Model
             vertices = barObject.getVertices();
             normals = barObject.getNormals();
-            indices = barObject.getIndices();
             texCoords = barObject.getTexCoords();
             // Sem indices (blender + obj2opengl)
             numVerts = barObject.getNumObjectVertex();
