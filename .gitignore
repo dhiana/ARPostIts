@@ -32,3 +32,6 @@ media/
 # Eclipse
 .classpath
 .project
+
+# ADT
+project.properties
