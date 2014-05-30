@@ -52,7 +52,7 @@ public class ActivitySplashScreen extends Activity
             {
                 Intent intent = new Intent();
                 mClassToLaunchPackage = getPackageName();
-                mActivityToLaunch = "app.FrameMarkers.FrameMarkers";
+                mActivityToLaunch = "ProjectSelector";
                 mClassToLaunch = mClassToLaunchPackage + "." + mActivityToLaunch;
                 intent.setClassName(mClassToLaunchPackage, mClassToLaunch);
                 startActivity(intent);

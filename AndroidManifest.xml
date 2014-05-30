@@ -35,5 +35,9 @@
             android:launchMode="singleTask"
             >
         </activity>
+        <activity
+            android:name="com.qualcomm.vuforia.samples.VuforiaSamples.ProjectSelector"
+            android:label="@string/title_activity_project_selector" >
+        </activity>
     </application>
 </manifest>

@@ -6,10 +6,9 @@
 package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
 
 import java.util.Vector;
-import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -28,7 +27,6 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
-
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -47,11 +45,11 @@ import com.qualcomm.vuforia.samples.SampleApplication.SampleApplicationSession;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.LoadingDialogHandler;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleApplicationGLView;
 import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
+import com.qualcomm.vuforia.samples.VuforiaSamples.ProjectSelector;
 import com.qualcomm.vuforia.samples.VuforiaSamples.R;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
-
 import com.dhiana.arpostits.model.Project;
 import com.dhiana.arpostits.api.ApiClient;
 
@@ -92,6 +90,9 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
 
     boolean mIsDroidDevice = false;
 
+
+    private int mProjectId = 0;
+    
     private Project mProject = new Project();
 
     // Called when the activity first starts or the user navigates back to an
@@ -101,28 +102,19 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
     {
         Log.d(LOGTAG, "onCreate");
         super.onCreate(savedInstanceState);
-        
-        vuforiaAppSession = new SampleApplicationSession(this);
-        
         startLoadingAnimation();
-        
+
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(ProjectSelector.EXTRA_MESSAGE);
+
+        mProjectId = Integer.parseInt(message);
+
+        vuforiaAppSession = new SampleApplicationSession(this);
+
         vuforiaAppSession
             .initAR(this, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        
-        mGestureDetector = new GestureDetector(this, new GestureListener());
-        
-        ApiClient.getARPostItsApiClient().getProject(1, new Callback<Project>() {
-            @Override
-            public void success(Project project, Response response) {
-                mProject = project;
-                mRenderer.setProject(mProject);
-            }
 
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                Log.d(LOGTAG, "No consumption.");
-            }
-        });
+        mGestureDetector = new GestureDetector(this, new GestureListener());
 
         // Load any sample specific textures:
         mTextures = new Vector<Texture>();
@@ -450,9 +442,23 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         if (exception == null)
         {
             initApplicationAR();
-            
+
+            ApiClient.getARPostItsApiClient().getProject(mProjectId, new Callback<Project>() {
+                @Override
+                public void success(Project project, Response response) {
+                    mProject = project;
+                    mRenderer.setProject(mProject);
+                }
+
+                @Override
+                public void failure(RetrofitError retrofitError) {
+                    Log.d(LOGTAG, "No consumption.");
+                }
+            });
+
+
             mRenderer.mIsActive = true;
-            
+
             // Now add the GL surface view. It is important
             // that the OpenGL ES surface view gets added
             // BEFORE the camera is started and video

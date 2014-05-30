@@ -55,4 +55,8 @@
         
     <string name="splash_screen_description">Vuforia Splash</string>
     
+    <string name="title_activity_project_selector">ProjectSelector</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

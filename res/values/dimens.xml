@@ -10,5 +10,7 @@
     <dimen name="menu_entries_sides_padding">10dp</dimen>
     <dimen name="menu_entries_top_down_padding">15dp</dimen>
     <dimen name="menu_entries_top_down_radio_padding">7dp</dimen>
-    
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
 </resources>
