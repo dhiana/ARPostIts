@@ -1,5 +1,7 @@
 package com.dhiana.arpostits.model;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Item {
 
@@ -9,6 +11,7 @@ public class Item {
     private String title;
     private Boolean ready;
     private Boolean blocked;
+    private List<Task> tasks = new ArrayList<Task>();
 
     public static final int GREEN = 0;
     public static final int YELLOW = 1;
@@ -56,6 +59,14 @@ public class Item {
 
     public void setBlocked(Boolean blocked) {
         this.blocked = blocked;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     public int getColor() {

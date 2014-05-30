@@ -448,6 +448,8 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
                 public void success(Project project, Response response) {
                     mProject = project;
                     mRenderer.setProject(mProject);
+                    Log.d(LOGTAG, project.getItemByMarker(1).getTasks().get(1).getTitle());
+                    Log.d(LOGTAG, project.getItemByMarker(1).getTasks().get(2).getTitle());
                 }
 
                 @Override
