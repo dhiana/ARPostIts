@@ -28,3 +28,7 @@ media/
 
 # Unix
 *.swp
+
+# Eclipse
+.classpath
+.project
