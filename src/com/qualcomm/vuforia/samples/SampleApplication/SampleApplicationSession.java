@@ -172,11 +172,8 @@ public class SampleApplicationSession implements UpdateCallbackInterface
         
         m_sessionControl.doStartTrackers();
         
-        try
-        {
-            setFocusMode(CameraDevice.FOCUS_MODE.FOCUS_MODE_TRIGGERAUTO);
-        } catch (SampleApplicationException exceptionTriggerAuto)
-        {
+        boolean focusModeSet = setFocusMode(CameraDevice.FOCUS_MODE.FOCUS_MODE_CONTINUOUSAUTO);
+        if (!focusModeSet) {
             setFocusMode(CameraDevice.FOCUS_MODE.FOCUS_MODE_NORMAL);
         }
     }
