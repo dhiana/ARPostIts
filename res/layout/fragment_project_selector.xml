@@ -2,32 +2,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.qualcomm.vuforia.samples.VuforiaSamples.ProjectSelector$PlaceholderFragment" >
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="AR Post-Its"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
+
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="27dp"
+        android:digits="0123456789"
         android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
+        android:gravity="center"
+        android:hint="#"
+        android:imeOptions="actionDone"
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/editText1"
         android:layout_below="@+id/editText1"
+        android:layout_marginTop="26dp"
+        android:onClick="sendMessage"
+        android:text="OK" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:text="Button"
-        android:onClick="sendMessage" />
+        android:layout_marginTop="116dp"
+        android:text="Insert project number"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
 
 </RelativeLayout>
