@@ -364,9 +364,9 @@ public class FrameMarkers extends Activity implements SampleApplicationControl,
         if (markerTracker == null)
             return false;
         
-        dataSet = new Marker[14];
+        dataSet = new Marker[512];
         
-        for(int i=0; i<14; i++){
+        for(int i=0; i<512; i++){
             dataSet[i] = markerTracker.createFrameMarker(i, "Marker"+i, new Vec2F(50, 50));
             if (dataSet[i] == null){
                 Log.e(LOGTAG, "Failed to create frame marker"+i+".");
