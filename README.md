@@ -33,8 +33,13 @@ Setting up!
     # From scratch
     $ adb install bin/ARPostIts-debug.apk
 
-    # Or, update
+### Other useful commands
+
+    # Update already installed app
     $ adb install -r bin/ARPostIts-debug.apk
 
-    # If needed, uninstall
+    # Uninstall app
     $ adb uninstall com.qualcomm.vuforia.samples.VuforiaSamples
+
+    # Clean
+    $ ant clean debug
