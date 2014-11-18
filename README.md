@@ -25,21 +25,5 @@ Setting up!
 
 ### Build
 
-    # Creates bin/ARPostIts-debug.apk
-    $ ant debug
-
-### Deploy
-
-    # From scratch
-    $ adb install bin/ARPostIts-debug.apk
-
-### Other useful commands
-
-    # Update already installed app
-    $ adb install -r bin/ARPostIts-debug.apk
-
-    # Uninstall app
-    $ adb uninstall com.qualcomm.vuforia.samples.VuforiaSamples
-
-    # Clean
-    $ ant clean debug
+    # Skip commands as you wish...
+    $ ant clean uninstall debug install
