@@ -21,7 +21,7 @@ Setting up!
 ### Setup local environment
 
     # Creates local.properties and proguard-project.txt
-    $ android update project --path .
+    $ android update project --path . --target android-17
 
 ### Build
 
