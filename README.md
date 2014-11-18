@@ -1,6 +1,5 @@
-ARPostIts
+ARPostIts [![Build Status](https://travis-ci.org/dhiana/ARPostIts.svg?branch=master)](https://travis-ci.org/dhiana/ARPostIts)
 =========
-[![Build Status](https://travis-ci.org/dhiana/arpostits.svg?branch=master)](https://travis-ci.org/dhiana/arpostits)
 
 Post-its gone Augmented Reality!
 
@@ -41,3 +40,15 @@ Setting up!
 
     # Or simply...
     $ ant debug install test
+
+### Ackknowledgements
+
+Software for Smartphones and Cloud Computing (EEL970)
+
+Sergio Barbosa Villas­Boas (sbVB)	www.sbvb.com.br
+
+Department of Electronics Engineering (DEL)
+
+Polytechnic School (Poli)
+
+Federal University of Rio de Janeiro (UFRJ)  
