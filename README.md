@@ -41,6 +41,14 @@ Setting up!
     # Or simply...
     $ ant debug install test
 
+### Watch it!
+
+[![ScreenShot](https://img.youtube.com/vi/VVSMlZFBCOY/0.jpg)](https://www.youtube.com/watch?v=VVSMlZFBCOY)
+
+[![ScreenShot](https://img.youtube.com/vi/ek7FqlI_qXc/0.jpg)](https://www.youtube.com/watch?v=ek7FqlI_qXc)
+
+[![ScreenShot](https://img.youtube.com/vi/W-cvMmoulhc/0.jpg)](https://www.youtube.com/watch?v=W-cvMmoulhc)
+
 ### Ackknowledgements
 
 Software for Smartphones and Cloud Computing (EEL970)
