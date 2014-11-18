@@ -1,4 +1,4 @@
-package com.qualcomm.vuforia.samples.VuforiaSamples;
+package com.dhiana.arpostits;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,10 @@ import android.widget.RelativeLayout;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers.FrameMarkers;
+import com.dhiana.arpostits.vuforia.FrameMarkers;
+import com.dhiana.arpostits.R;
+import com.dhiana.arpostits.R.id;
+import com.dhiana.arpostits.R.layout;
 
 
 

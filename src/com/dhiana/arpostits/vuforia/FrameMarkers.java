@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
+package com.dhiana.arpostits.vuforia;
 
 import java.util.Vector;
 
@@ -39,17 +39,11 @@ import com.qualcomm.vuforia.Tracker;
 import com.qualcomm.vuforia.TrackerManager;
 import com.qualcomm.vuforia.Vec2F;
 import com.qualcomm.vuforia.Vuforia;
-import com.qualcomm.vuforia.samples.SampleApplication.SampleApplicationControl;
-import com.qualcomm.vuforia.samples.SampleApplication.SampleApplicationException;
-import com.qualcomm.vuforia.samples.SampleApplication.SampleApplicationSession;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.LoadingDialogHandler;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleApplicationGLView;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
-import com.qualcomm.vuforia.samples.VuforiaSamples.ProjectSelector;
-import com.qualcomm.vuforia.samples.VuforiaSamples.R;
-import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
-import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
-import com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+import com.dhiana.arpostits.R;
+import com.dhiana.arpostits.ProjectSelector;
+import com.dhiana.arpostits.SampleAppMenu;
+import com.dhiana.arpostits.SampleAppMenuGroup;
+import com.dhiana.arpostits.SampleAppMenuInterface;
 import com.dhiana.arpostits.model.Project;
 import com.dhiana.arpostits.api.ApiClient;
 

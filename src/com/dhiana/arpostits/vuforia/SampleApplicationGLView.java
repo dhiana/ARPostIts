@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.SampleApplication.utils;
+package com.dhiana.arpostits.vuforia;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;

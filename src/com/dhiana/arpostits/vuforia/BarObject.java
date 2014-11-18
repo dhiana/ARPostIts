@@ -3,11 +3,10 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
+package com.dhiana.arpostits.vuforia;
 
 import java.nio.Buffer;
 
-import com.qualcomm.vuforia.samples.SampleApplication.utils.MeshObject;
 
 
 public class BarObject extends MeshObject

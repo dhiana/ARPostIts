@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.app.FrameMarkers;
+package com.dhiana.arpostits.vuforia;
 
 import java.nio.Buffer;
 import java.util.Vector;
@@ -24,10 +24,6 @@ import com.qualcomm.vuforia.Tool;
 import com.qualcomm.vuforia.TrackableResult;
 import com.qualcomm.vuforia.VIDEO_BACKGROUND_REFLECTION;
 import com.qualcomm.vuforia.Vuforia;
-import com.qualcomm.vuforia.samples.SampleApplication.SampleApplicationSession;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.CubeShaders;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.SampleUtils;
-import com.qualcomm.vuforia.samples.SampleApplication.utils.Texture;
 
 import com.dhiana.arpostits.model.Item;
 import com.dhiana.arpostits.model.Project;

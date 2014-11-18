@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.SampleApplication.utils;
+package com.dhiana.arpostits.vuforia;
 
 public class LineShaders
 {

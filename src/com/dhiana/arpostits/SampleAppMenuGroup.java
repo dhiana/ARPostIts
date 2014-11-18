@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu;
+package com.dhiana.arpostits;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -22,7 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.qualcomm.vuforia.samples.VuforiaSamples.R;
+import com.dhiana.arpostits.R;
 
 
 public class SampleAppMenuGroup

@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu;
+package com.dhiana.arpostits;
 
 import android.content.Context;
 import android.graphics.Canvas;

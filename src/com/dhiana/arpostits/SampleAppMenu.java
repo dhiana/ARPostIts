@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu;
+package com.dhiana.arpostits;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.qualcomm.vuforia.samples.VuforiaSamples.R;
+import com.dhiana.arpostits.R;
 
 
 // Handles the sample apps menu settings

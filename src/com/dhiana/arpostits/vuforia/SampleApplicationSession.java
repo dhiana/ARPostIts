@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.SampleApplication;
+package com.dhiana.arpostits.vuforia;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;

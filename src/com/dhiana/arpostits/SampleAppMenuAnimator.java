@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu;
+package com.dhiana.arpostits;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

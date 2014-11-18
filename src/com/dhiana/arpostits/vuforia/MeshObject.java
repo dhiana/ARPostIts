@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.SampleApplication.utils;
+package com.dhiana.arpostits.vuforia;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;

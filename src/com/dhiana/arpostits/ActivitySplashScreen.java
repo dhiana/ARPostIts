@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.ActivityList;
+package com.dhiana.arpostits;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
-import com.qualcomm.vuforia.samples.VuforiaSamples.R;
+import com.dhiana.arpostits.R;
 
 
 public class ActivitySplashScreen extends Activity

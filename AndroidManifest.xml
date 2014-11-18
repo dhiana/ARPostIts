@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qualcomm.vuforia.samples.VuforiaSamples"
+    package="com.dhiana.arpostits"
     android:versionCode="200"
     android:versionName="2.8" >
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
@@ -18,7 +18,7 @@
         android:theme="@style/SampleAppsTheme"
         >
         <activity
-            android:name=".ui.ActivityList.ActivitySplashScreen"
+            android:name="com.dhiana.arpostits.ActivitySplashScreen"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:screenOrientation="portrait"
             android:noHistory="true"
@@ -29,14 +29,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.FrameMarkers.FrameMarkers"
+            android:name="com.dhiana.arpostits.vuforia.FrameMarkers"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:theme="@style/SampleAppsTheme"
             android:launchMode="singleTask"
             >
         </activity>
         <activity
-            android:name="com.qualcomm.vuforia.samples.VuforiaSamples.ProjectSelector"
+            android:name="com.dhiana.arpostits.ProjectSelector"
             android:label="@string/title_activity_project_selector" >
         </activity>
     </application>

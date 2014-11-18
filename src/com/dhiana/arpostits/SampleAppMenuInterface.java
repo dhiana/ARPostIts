@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.VuforiaSamples.ui.SampleAppMenu;
+package com.dhiana.arpostits;
 
 // To be implemented in the activities to handle any desired function 
 // previously set for a SampleAppMenu instance

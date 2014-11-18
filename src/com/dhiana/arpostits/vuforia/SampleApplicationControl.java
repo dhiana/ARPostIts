@@ -3,7 +3,7 @@
  All Rights Reserved.
  ==============================================================================*/
 
-package com.qualcomm.vuforia.samples.SampleApplication;
+package com.dhiana.arpostits.vuforia;
 
 import com.qualcomm.vuforia.State;
 
