@@ -27,3 +27,16 @@ Setting up!
 
     # Skip commands as you wish...
     $ ant clean uninstall debug install
+
+### Run tests
+
+    $ ant debug
+    $ adb install -r bin/ARPostIts-debug.apk
+    $ cd tests
+    $ ant debug
+    $ adb install -r bin/ARPosTests-debug.apk
+    $ adb shell pm list instrumentation
+    $ adb shell am instrument -w com.dhiana.arpostits.tests/android.test.InstrumentationTestRunner
+
+    # Or simply...
+    $ ant debug install test
