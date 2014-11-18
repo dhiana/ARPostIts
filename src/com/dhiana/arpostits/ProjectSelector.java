@@ -11,8 +11,6 @@ import android.content.Intent;
 
 import com.dhiana.arpostits.vuforia.FrameMarkers;
 import com.dhiana.arpostits.R;
-import com.dhiana.arpostits.R.id;
-import com.dhiana.arpostits.R.layout;
 
 
 

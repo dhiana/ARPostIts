@@ -18,7 +18,7 @@
         android:theme="@style/SampleAppsTheme"
         >
         <activity
-            android:name="com.dhiana.arpostits.ActivitySplashScreen"
+            android:name=".ActivitySplashScreen"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:screenOrientation="portrait"
             android:noHistory="true"
@@ -29,14 +29,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dhiana.arpostits.vuforia.FrameMarkers"
+            android:name=".vuforia.FrameMarkers"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:theme="@style/SampleAppsTheme"
             android:launchMode="singleTask"
             >
         </activity>
         <activity
-            android:name="com.dhiana.arpostits.ProjectSelector"
+            android:name=".ProjectSelector"
             android:label="@string/title_activity_project_selector" >
         </activity>
     </application>
