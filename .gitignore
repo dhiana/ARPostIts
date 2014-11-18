@@ -23,7 +23,6 @@ local.properties
 proguard/
 
 # Libs
-libs/
 media/
 
 # Unix
