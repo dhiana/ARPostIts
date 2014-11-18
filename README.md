@@ -1,5 +1,6 @@
 ARPostIts
 =========
+[![Build Status](https://travis-ci.org/dhiana/arpostits.svg?branch=master)](https://travis-ci.org/dhiana/arpostits)
 
 Post-its gone Augmented Reality!
 
