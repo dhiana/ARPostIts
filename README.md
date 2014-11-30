@@ -30,6 +30,7 @@ Setting up!
 
 ### Run tests
 
+#### Step-by-step
     $ ant debug
     $ adb install -r bin/ARPostIts-debug.apk
     $ cd tests
@@ -38,7 +39,8 @@ Setting up!
     $ adb shell pm list instrumentation
     $ adb shell am instrument -w com.dhiana.arpostits.tests/android.test.InstrumentationTestRunner
 
-    # Or simply...
+
+#### Or simply...
     $ ant debug install test
 
 ### Watch it!
